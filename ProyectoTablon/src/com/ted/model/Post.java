@@ -19,6 +19,7 @@ public class Post implements Serializable{
 	private Date fechaCreacion;
 	private double puntuacion;//Basada en competicion entre post cercanos por sistema ELO(ajedrez)
 	private String texto;
+	//Quizas es mejor usar blob directamente para las imagenes
 	private Image imagen;//Por el momento solo se permite al usuario añadir una imagen por post
 	
 	//Constructores

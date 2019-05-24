@@ -3,7 +3,11 @@ package com.ted.connection;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
+/**
+ * 
+ * @author Cristo
+ *
+ */
 public class Conection {
 	public static Connection conect() {
 		Connection con = null;

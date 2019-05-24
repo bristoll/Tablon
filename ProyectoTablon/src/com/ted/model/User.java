@@ -21,6 +21,7 @@ public class User implements Serializable{
 	private String correo;
 	private String nik;
 	private Image avatar;//Podria usarse un array de bytes (Bytes[])siempre y cuando no necesitemos tratarla 
+	//Quizas es posible eliminar fechaAlta ya que podemos crear el timeStamp en la base de datos al crear el registro y ya esta
 	private Timestamp fechaAlta; // para poder registrar la antiguedad del usuario y añadir badges en funcion de antiguedad
 	private int numPost;//Numero de post que el usuario ha escrito hasta el momento, también para badges futuros
 	
