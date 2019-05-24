@@ -16,13 +16,12 @@ public class PostDAOImpl implements PostDAO {
 
 	@Override
 	public boolean insert(Post post) {
-		boolean insert = false; // initialize our return to false so if we don't insert somethig we return false
-
-		// instanciate objects we will need for connect to mysql
+		boolean insert = false; 
+		
 		Statement stm;
 		Connection con;
 
-		// we define our sql query
+		
 		// TODO cambiar el getUsuario que seguro que nos va a dar problemas seguramente
 		// usar el .ID ( no entiendo bien como hacer esa relacion en la BD)
 		// Probablemente sea necesario usar preparedStatment por la imagen y hacer
@@ -34,9 +33,9 @@ public class PostDAOImpl implements PostDAO {
 			con = Conection.conect();
 			stm = con.createStatement();
 			stm.execute(query);
-			insert = true;// make insert true if we execute our query
+			
+			insert = true;
 
-			// Close connection
 			stm.close();
 			con.close();
 		} catch (SQLException e) {
@@ -80,10 +79,10 @@ public class PostDAOImpl implements PostDAO {
 				post.setTexto(rs.getString(5));
 				// post.setImagen(rs.getBlob(6));
 
-				// add information extracted from DB to our arraylist
+				
 				listaPosts.add(post);
 			}
-			// close connection
+			
 			stm.close();
 			rs.close();
 			co.close();

@@ -18,13 +18,13 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public boolean insert(User user) {
-		boolean insert = false; // initialize our return to false so if we don't insert somethig we return false
-
-		// instanciate objects we will need for connect to mysql
+		boolean insert = false; 
+		
+		
 		Statement stm;
 		Connection con;
 
-		// we define our sql query
+		
 		// TODO cambiar el getFechaAlta para pasar de java.util.Date a java.sql.Date
 		String query = "INSERT INTO User values (NULL,'" + user.getNombre() + "','" + user.getApellidos() + "','"
 				+ user.getCorreo() + "','" + user.getNik() + "','" + user.getAvatar() + "','" + user.getFechaAlta()
@@ -34,9 +34,9 @@ public class UserDAOImpl implements UserDAO {
 			con = Conection.conect();
 			stm = con.createStatement();
 			stm.execute(query);
-			insert = true;// make insert true if we execute our query
+			insert = true;
 
-			// Close connection
+			
 			stm.close();
 			con.close();
 		} catch (SQLException e) {
@@ -82,10 +82,10 @@ public class UserDAOImpl implements UserDAO {
 				user.setFechaAlta(rs.getTimestamp(7));
 				user.setNumPost(rs.getInt(8));
 
-				// add information extracted from DB to our arraylist
+				
 				listaUsers.add(user);
 			}
-			// close connection
+		
 			stm.close();
 			rs.close();
 			co.close();
