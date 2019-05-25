@@ -7,6 +7,11 @@ import com.ted.model.Post;
 import com.ted.model.PostDAO;
 import com.ted.model.PostDAOImpl;
 
+/**
+ * 
+ * @author Cristo
+ *
+ */
 public class PostController {
 	public void insert (Post post) {
 		PostDAO dao = new PostDAOImpl();
