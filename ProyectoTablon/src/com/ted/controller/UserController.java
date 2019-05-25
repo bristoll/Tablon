@@ -29,11 +29,11 @@ public class UserController {
 		dao.delete(user);
 		
 	}
-	public void verUser(){
+	public List<User> verUsers(){
 		List<User> users = new ArrayList<User>();
 		UserDAO dao= new  UserDAOImpl();
 		users=dao.obtain();
-//		vista.verUser(users);//Llamamos a ver users para mostrar el resultado
+		return users;
 	}
 
 	//TODO Añadir update

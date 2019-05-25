@@ -15,8 +15,8 @@ public class Conection {
 		String user = "root"; //just for developing use
 		String pass = "";
 		try {
-			//TODO cambiar **** por el nombre de la base de datos
-			String server = "jdbc:mysql://localhost/*************?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+			
+			String server = "jdbc:mysql://localhost/tablon?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 			con = DriverManager.getConnection(server, user, pass);
 
 			if (con != null) {

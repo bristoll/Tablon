@@ -1,6 +1,10 @@
 package com.ted.model;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -21,19 +25,24 @@ public class UserDAOImpl implements UserDAO {
 		boolean insert = false; 
 		
 		
-		Statement stm;
+		PreparedStatement stm;
 		Connection con;
+		
+		
+			
+			
+		
 
 		
-		// TODO cambiar el getFechaAlta para pasar de java.util.Date a java.sql.Date
-		String query = "INSERT INTO User values (NULL,'" + user.getNombre() + "','" + user.getApellidos() + "','"
+		//TODO buscar la forma de insertar imagenes
+		String query = "INSERT INTO user values (NULL,'" + user.getNombre() + "','" + user.getApellidos() + "','"
 				+ user.getCorreo() + "','" + user.getNik() + "','" + user.getAvatar() + "','" + user.getFechaAlta()
 				+ "','" + user.getNumPost() + "')";
 
 		try {
 			con = Conection.conect();
-			stm = con.createStatement();
-			stm.execute(query);
+			stm = con.prepareStatement(query);
+			stm.execute();
 			insert = true;
 
 			
@@ -55,8 +64,8 @@ public class UserDAOImpl implements UserDAO {
 		ResultSet rs = null;
 
 		// Establecemos el query para obtener los datos de la base de datos
-		//TODO cambiar *** por el nombre de la base de datos
-		String select = "SELECT * FROM ****** ORDER BY ID";
+		
+		String select = "SELECT * FROM user ORDER BY ID";
 
 		// instanciamos un nuevo arraylist para guardar los datos que vayamos sacando
 		List<User> listaUsers = new ArrayList<>();
@@ -108,8 +117,8 @@ public class UserDAOImpl implements UserDAO {
 		Statement stm = null;
 		
 		boolean delete = false;
-		//TODO cambiar *** por nombre bd
-		String query = "DELETE FROM *** WHERE ID="+user.getID();
+		
+		String query = "DELETE FROM user WHERE ID="+user.getID();
 		try {
 			connect = Conection.conect();
 			stm = connect.createStatement();

@@ -26,7 +26,7 @@ public class PostDAOImpl implements PostDAO {
 		// usar el .ID ( no entiendo bien como hacer esa relacion en la BD)
 		// Probablemente sea necesario usar preparedStatment por la imagen y hacer
 		// conversion de blob a imagen
-		String query = "INSERT INTO Post values (NULL,'" + post.getUsuario() + "','" + post.getFechaCreacion() + "','"
+		String query = "INSERT INTO post values (NULL,'" + post.getUsuario().getID() + "','" + post.getFechaCreacion() + "','"
 				+ post.getPuntuacion() + "','" + post.getTexto() + "','" + post.getImagen() + "')";
 
 		try {
@@ -54,8 +54,8 @@ public class PostDAOImpl implements PostDAO {
 		ResultSet rs = null;
 
 		// Establecemos el query para obtener los datos de la base de datos
-		// TODO cambiar *** por el nombre de la base de datos
-		String select = "SELECT * FROM ****** ORDER BY ID";
+		
+		String select = "SELECT * FROM post ORDER BY ID";
 
 		// instanciamos un nuevo arraylist para guardar los datos que vayamos sacando
 		List<Post> listaPosts = new ArrayList<>();
@@ -105,8 +105,8 @@ public class PostDAOImpl implements PostDAO {
 		Statement stm = null;
 
 		boolean delete = false;
-		// TODO cambiar *** por nombre bd
-		String query = "DELETE FROM *** WHERE ID=" + post.getID();
+		
+		String query = "DELETE FROM post WHERE ID=" + post.getID();
 		try {
 			connect = Conection.conect();
 			stm = connect.createStatement();
