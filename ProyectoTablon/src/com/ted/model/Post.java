@@ -1,6 +1,7 @@
 package com.ted.model;
 
 import java.awt.Image;
+import java.io.File;
 import java.io.Serializable;
 import java.util.Date;
 /**
@@ -20,7 +21,7 @@ public class Post implements Serializable{
 	private double puntuacion;//Basada en competicion entre post cercanos por sistema ELO(ajedrez)
 	private String texto;
 	//Quizas es mejor usar blob directamente para las imagenes
-	private Image imagen;//Por el momento solo se permite al usuario añadir una imagen por post
+	private File imagen;//Por el momento solo se permite al usuario añadir una imagen por post
 	
 	//Constructores
 	public Post() {
@@ -33,13 +34,21 @@ public class Post implements Serializable{
 		this.puntuacion = puntuacion;
 		this.texto = texto;
 	}
-	public Post( User usuario, Date fechaCreacion, double puntuacion, String texto, Image imagen) {
+	public Post( User usuario, Date fechaCreacion, double puntuacion, String texto, File imagen) {
 		super();
 		this.usuario = usuario;
 		this.fechaCreacion = fechaCreacion;
 		this.puntuacion = puntuacion;
 		this.texto = texto;
 		this.imagen = imagen;
+	}
+	public Post( User usuario, Date fechaCreacion, double puntuacion, String texto, String ruta) {
+		super();
+		this.usuario = usuario;
+		this.fechaCreacion = fechaCreacion;
+		this.puntuacion = puntuacion;
+		this.texto = texto;
+		this.imagen = new File(ruta);
 	}
 	
 	//Getters and setters
@@ -73,11 +82,14 @@ public class Post implements Serializable{
 	public void setTexto(String texto) {
 		this.texto = texto;
 	}
-	public Image getImagen() {
+	public File getImagen() {
 		return imagen;
 	}
-	public void setImagen(Image imagen) {
+	public void setImagen(File imagen) {
 		this.imagen = imagen;
+	}
+	public void setImagen(String ruta) {
+		this.imagen = new File(ruta);
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;

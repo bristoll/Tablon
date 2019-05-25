@@ -52,6 +52,18 @@ public class User implements Serializable{
 		this.fechaAlta = fechaAlta;
 		this.numPost = numPost;
 	}
+	//Sobrecargamos el constructor para cuando nos pasen la ruta
+	public User(String nombre, String apellidos, String correo, String nik, String ruta, Timestamp fechaAlta,
+			int numPost) {
+		super();
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.correo = correo;
+		this.nik = nik;
+		this.avatar = new File(ruta);
+		this.fechaAlta = fechaAlta;
+		this.numPost = numPost;
+	}
 
 	//Getters and setters
 	public int getID() {
@@ -99,6 +111,11 @@ public class User implements Serializable{
 	}
 
 	public void setAvatar(File avatar) {
+		this.avatar = avatar;
+	}
+	//Sobrecargamos el metodo set por si nos pasan la ruta
+	public void setAvatar(String ruta) {
+		File avatar = new File(ruta);
 		this.avatar = avatar;
 	}
 

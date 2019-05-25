@@ -21,10 +21,10 @@ public static void main(String[] args) {
 	
 	//Prueba con imagen
 	//llamamos al archivo por la ruta
-//	File imagen = new File("/ProyectoTablon/src/a2913619151_16.jpg");
-//	
-//	User usuario2 = new User("pepin", "peponcio", "pepitin@gmail.com", "pepon",imagen, java.sql.Timestamp.valueOf(LocalDateTime.now()), 0);
-//	controladorU.insert(usuario2);
+	String imagen = "/ProyectoTablon/src/15-5122.png";
+	
+	User usuario2 = new User("opin", "oncio", "pitin@gmail.com", "pon",imagen, java.sql.Timestamp.valueOf(LocalDateTime.now()), 0);
+	controladorU.insert(usuario2);
 	
 	List<User> lista =controladorU.verUsers();
 	

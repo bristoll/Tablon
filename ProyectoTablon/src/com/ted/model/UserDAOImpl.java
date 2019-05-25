@@ -3,6 +3,7 @@ package com.ted.model;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,14 +26,8 @@ public class UserDAOImpl implements UserDAO {
 		boolean insert = false; 
 		
 		
-		PreparedStatement stm;
+		Statement stm;
 		Connection con;
-		
-		
-			
-			
-		
-
 		
 		//TODO buscar la forma de insertar imagenes
 		String query = "INSERT INTO user values (NULL,'" + user.getNombre() + "','" + user.getApellidos() + "','"
@@ -41,8 +36,9 @@ public class UserDAOImpl implements UserDAO {
 
 		try {
 			con = Conection.conect();
-			stm = con.prepareStatement(query);
-			stm.execute();
+			stm = con.createStatement();
+			stm.execute(query);
+			
 			insert = true;
 
 			
