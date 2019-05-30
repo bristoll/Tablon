@@ -31,7 +31,7 @@
 			<ul class="nav nav-tabs card-header-tabs">
 				<li class="nav-item"><a class="nav-link active" href="#">Mis
 						datos</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Mis Post</a>
+				<li class="nav-item"><a class="nav-link" href="misPost.jsp">Mis Post</a>
 				</li>
 
 			</ul>
