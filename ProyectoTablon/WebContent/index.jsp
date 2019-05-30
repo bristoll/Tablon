@@ -71,7 +71,7 @@
 		<div class="row justify-content-center">
 
 			<div class="form-group col-md-8">
-				<a href="#" class="list-group-item list-group-item-action ">
+				<a href="post.jsp" class="list-group-item list-group-item-action ">
 					<div class="d-flex w-100 justify-content-between">
 						<h5 class="mb-1">Titulo del Post 1</h5>
 						<span class="badge badge-primary badge-pill">14</span>
