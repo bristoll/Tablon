@@ -8,8 +8,4 @@ public class ComprobarLogin implements Comprobar {
 		return false;
 	}
 
-
-	
-	}
-
-
+}

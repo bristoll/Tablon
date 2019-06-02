@@ -14,30 +14,30 @@ import com.ted.model.User;
 public class Test1 {
 public static void main(String[] args) {
 	
-	//Prueba insertar usuario sin foto
-	User usuario = new User("cristo", "suarez", "admync@gmail.com", "cristorio", java.sql.Timestamp.valueOf(LocalDateTime.now()), 0);
-	UserController controladorU = new UserController();
-	
-	
-	//Prueba con imagen
-	//llamamos al archivo por la ruta
-	String imagen = "/ProyectoTablon/src/15-5122.png";
-	
-	User usuario2 = new User("opin", "oncio", "pitin@gmail.com", "pon",imagen, java.sql.Timestamp.valueOf(LocalDateTime.now()), 0);
-	controladorU.insert(usuario2);
-	
-	List<User> lista =controladorU.verUsers();
-	
-	System.out.println(usuario.getID());
-	System.out.println("****");
-	System.out.println(lista);
-
-	//Prueba insertar post sin foto
-	Post post = new Post(lista.get(0), java.sql.Timestamp.valueOf(LocalDateTime.now()), 400, "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrystandard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.");
-	PostController postController = new PostController();
-	
-	postController.insert(post);
-
+//	//Prueba insertar usuario sin foto
+//	User usuario = new User("cristo", "suarez", "admync@gmail.com", "cristorio", java.sql.Timestamp.valueOf(LocalDateTime.now()), 0);
+//	UserController controladorU = new UserController();
+//	
+//	
+//	//Prueba con imagen
+//	//llamamos al archivo por la ruta
+//	String imagen = "/ProyectoTablon/src/15-5122.png";
+//	
+//	User usuario2 = new User("opin", "oncio", "pitin@gmail.com", "pon",imagen, java.sql.Timestamp.valueOf(LocalDateTime.now()), 0);
+//	controladorU.insert(usuario2);
+//	
+//	List<User> lista =controladorU.verUsers();
+//	
+//	System.out.println(usuario.getID());
+//	System.out.println("****");
+//	System.out.println(lista);
+//
+//	//Prueba insertar post sin foto
+//	Post post = new Post(lista.get(0), java.sql.Timestamp.valueOf(LocalDateTime.now()), 400, "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrystandard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.");
+//	PostController postController = new PostController();
+//	
+//	postController.insert(post);
+//
 
 }
 }

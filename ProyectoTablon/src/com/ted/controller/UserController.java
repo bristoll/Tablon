@@ -15,10 +15,11 @@ import com.ted.model.UserDAOImpl;
 
 
 public class UserController {
-	public void insert (User user) {
+	public boolean insert (User user) {
 		UserDAO dao = new UserDAOImpl();
 		//vista.verUser(user);
-		dao.insert(user);
+		boolean insertar=dao.insert(user);
+		return insertar;
 		
 	}
 		

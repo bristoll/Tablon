@@ -19,51 +19,37 @@ public class User implements Serializable{
 	private int ID;
 	private String nombre;
 	private String apellidos;
+	private String password;
 	private String correo;
 	private String nik;
 	private File avatar;//Podria usarse un array de bytes (Bytes[])siempre y cuando no necesitemos tratarla 
 	//Quizas es posible eliminar fechaAlta ya que podemos crear el timeStamp en la base de datos al crear el registro y ya esta
 	private Timestamp fechaAlta; // para poder registrar la antiguedad del usuario y añadir badges en funcion de antiguedad
-	private int numPost;//Numero de post que el usuario ha escrito hasta el momento, también para badges futuros
+	private int numPost=0;//Numero de post que el usuario ha escrito hasta el momento, también para badges futuros
 	
 	//Constructores
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(String nombre, String apellidos, String correo, String nik, Timestamp fechaAlta, int numPost) {
+	
+
+	public User(String nombre, String apellidos, String password, String correo, String nik,
+			Timestamp fechaAlta) {
 		super();
+		
 		this.nombre = nombre;
 		this.apellidos = apellidos;
+		this.password = password;
 		this.correo = correo;
 		this.nik = nik;
 		this.fechaAlta = fechaAlta;
-		this.numPost = numPost;
 	}
 
-	public User(String nombre, String apellidos, String correo, String nik, File avatar, Timestamp fechaAlta,
-			int numPost) {
-		super();
-		this.nombre = nombre;
-		this.apellidos = apellidos;
-		this.correo = correo;
-		this.nik = nik;
-		this.avatar = avatar;
-		this.fechaAlta = fechaAlta;
-		this.numPost = numPost;
-	}
-	//Sobrecargamos el constructor para cuando nos pasen la ruta
-	public User(String nombre, String apellidos, String correo, String nik, String ruta, Timestamp fechaAlta,
-			int numPost) {
-		super();
-		this.nombre = nombre;
-		this.apellidos = apellidos;
-		this.correo = correo;
-		this.nik = nik;
-		this.avatar = new File(ruta);
-		this.fechaAlta = fechaAlta;
-		this.numPost = numPost;
-	}
+
+
+
+	
 
 	//Getters and setters
 	public int getID() {
@@ -88,6 +74,14 @@ public class User implements Serializable{
 
 	public void setApellidos(String apellidos) {
 		this.apellidos = apellidos;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getCorreo() {
@@ -139,8 +133,11 @@ public class User implements Serializable{
 		return serialVersionUID;
 	}
 
+
+
 	//Sobreescritura de equals, hashCode y toString(No se usa el campo imagen
 	//ya que se pueden usar imagenes iguales como avatar de distintos usuarios)
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -152,8 +149,11 @@ public class User implements Serializable{
 		result = prime * result + ((nik == null) ? 0 : nik.hashCode());
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
 		result = prime * result + numPost;
+		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		return result;
 	}
+
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -193,14 +193,25 @@ public class User implements Serializable{
 			return false;
 		if (numPost != other.numPost)
 			return false;
+		if (password == null) {
+			if (other.password != null)
+				return false;
+		} else if (!password.equals(other.password))
+			return false;
 		return true;
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "User [ID=" + ID + ", nombre=" + nombre + ", apellidos=" + apellidos + ", correo=" + correo + ", nik="
-				+ nik + ", avatar=" + avatar + ", fechaAlta=" + fechaAlta + ", numPost=" + numPost + "]";
+		return "User [ID=" + ID + ", nombre=" + nombre + ", apellidos=" + apellidos + ", password=" + password
+				+ ", correo=" + correo + ", nik=" + nik + ", fechaAlta=" + fechaAlta + ", numPost=" + numPost + "]";
 	}
+
+
+
+	
 	
 	
 }

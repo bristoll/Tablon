@@ -25,27 +25,35 @@
 <title>Formulario de inscripción</title>
 </head>
 <body>
-	<form action="ProcesadoInscripcion" id="FormIns">
+	<form action="CrearUserServ" method="get" id="FormIns">
 
 
 		<div class="form-group col-md-5">
+			<label for="inputNombre">Nombre</label> <input type="text"
+				class="form-control" id="inputNombre" name="inputNombre"  placeholder="Nombre">
+		</div>
+		<div class="form-group col-md-5">
+			<label for="inputApellidos">Apellidos</label> <input type="text"
+				class="form-control" id="inputApellidos" name="inputApellidos" placeholder="Apellidos">
+		</div>
+		<div class="form-group col-md-5">
 			<label for="inputEmail">Email</label> <input type="email"
-				class="form-control" id="inputEmail" placeholder="Email">
+				class="form-control" id="inputEmail" name="inputEmail" placeholder="Email">
 		</div>
 		<div class="form-group col-md-5">
 			<label for="inputPassword">Password</label> <input type="password"
-				class="form-control" id="inputPassword" placeholder="Password">
+				class="form-control" id="inputPassword" name="inputPassword" placeholder="Password">
 		</div>
 
 		<div class="form-group col-md-5">
-			<label for="userName">Nombre de usuario</label> <input type="text"
-				class="form-control" id="Username"
+			<label for="Username">Nombre de usuario</label> <input type="text"
+				class="form-control" id="Username" name="Username"
 				placeholder="nombre de usuario elegido">
 		</div>
 
 		<div class="form-group col-md-5">
 			<label for="avatarFile">Imagen avatar</label> <input type="file"
-				class="form-control-file" id="avatarFile">
+				class="form-control-file" id="avatarFile" name="avatarFile">
 		</div>
 
 		<div class="form-group col-md-5">

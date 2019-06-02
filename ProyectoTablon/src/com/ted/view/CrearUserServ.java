@@ -19,40 +19,54 @@ import com.ted.model.User;
 @WebServlet("/CrearUserServ")
 public class CrearUserServ extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CrearUserServ() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public CrearUserServ() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		UserController controller=new UserController();
-		List<User> listauser = controller.verUsers();
-		
-		for (User usuario : listauser) {
-			if (usuario.getNik().equals(request.getAttribute("user"))) {
-				//error
-			}else if (usuario.getCorreo().equals(request.getParameter("inputEmail"))) {
-				//error
+		UserController controller = new UserController();
+
+//		System.out.println(request.getParameter("Username"));
+//		System.out.println(request.getParameter("inputEmail"));
+
+			
+			//System.out.println(request.getParameter("inputEmail").equals(usuario.getCorreo()));
+			
+
+				User user = new User(request.getParameter("inputNombre"), request.getParameter("inputApellidos"),
+						request.getParameter("inputPassword"), request.getParameter("inputEmail"),
+						request.getParameter("Username"), java.sql.Timestamp.valueOf(LocalDateTime.now()));
+				
+				boolean insertar = controller.insert(user);
+				System.out.println(insertar);
+				if (insertar == true) {
+					request.getRequestDispatcher("registro.jsp").forward(request, response);
+				} else {
+					request.getRequestDispatcher("formularioInscripcion.jsp").forward(request, response);
+				}
+
 			}
-			}
-		User user = new User(request.getParameter("imputNombre"), request.getParameter("imputApellidos"), request.getParameter("imputEmail"), request.getParameter("Username"), java.sql.Timestamp.valueOf(LocalDateTime.now()), 0);
-		request.getRequestDispatcher("registro");
-		}
+		
+		
 	
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

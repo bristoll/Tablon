@@ -30,7 +30,7 @@ public class UserDAOImpl implements UserDAO {
 		Connection con;
 		
 		//TODO buscar la forma de insertar imagenes
-		String query = "INSERT INTO user values (NULL,'" + user.getNombre() + "','" + user.getApellidos() + "','"
+		String query = "INSERT INTO user values (NULL,'" + user.getNombre() + "','" + user.getApellidos() + "','"+ user.getPassword() + "','"
 				+ user.getCorreo() + "','" + user.getNik() + "','" + user.getAvatar() + "','" + user.getFechaAlta()
 				+ "','" + user.getNumPost() + "')";
 
@@ -80,12 +80,13 @@ public class UserDAOImpl implements UserDAO {
 				user.setID(rs.getInt(1));
 				user.setNombre(rs.getString(2));
 				user.setApellidos(rs.getString(3));
-				user.setCorreo(rs.getString(4));
-				user.setNik(rs.getString(5));
+				user.setPassword(rs.getString(4));
+				user.setCorreo(rs.getString(5));
+				user.setNik(rs.getString(6));
 				//Nos saltamos el 6 porque es donde irá la imagen y no nos interesa en este caso
 				//Ya que esta funcion esta pensada para el administrador
-				user.setFechaAlta(rs.getTimestamp(7));
-				user.setNumPost(rs.getInt(8));
+				user.setFechaAlta(rs.getTimestamp(8));
+				user.setNumPost(rs.getInt(9));
 
 				
 				listaUsers.add(user);

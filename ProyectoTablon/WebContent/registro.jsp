@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,16 +26,16 @@
 <title>Formulario de inscripción</title>
 </head>
 <body>
-	<form action="AuthServ">
+	<form action="AuthServ" method="post">
 	
 		<div class="form-group col-md-5">
 			<label for="UserEmail">Email </label> <input
-				type="email" class="form-control" id="UserEmail"
+				type="email" class="form-control" id="UserEmail" name="UserEmail"
 				aria-describedby="emailHelp" placeholder="Email del usuario"> 
 		</div>
 		<div class="form-group col-md-5">
 			<label for="UserPassword">Contraseña</label> <input
-				type="password" class="form-control" id="UserPassword"
+				type="password" class="form-control" id="UserPassword" name="UserPassword"
 				placeholder="Contraseña">
 		</div>
 		
