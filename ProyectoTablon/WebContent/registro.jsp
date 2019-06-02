@@ -25,7 +25,7 @@
 <title>Formulario de inscripción</title>
 </head>
 <body>
-	<form>
+	<form action="AuthServ">
 	
 		<div class="form-group col-md-5">
 			<label for="UserEmail">Email </label> <input

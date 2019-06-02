@@ -1,11 +1,16 @@
 package com.ted.view;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.ted.controller.UserController;
+import com.ted.model.User;
 
 /**
  * Servlet implementation class AuthServ
@@ -27,7 +32,18 @@ public class AuthServ extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+UserController control = new UserController(); 
+		
+		List<User> listauser= control.verUsers();
+		System.out.println(listauser);
+//		for(User user: listauser) {
+//			if (user.getCorreo().equals(request.getParameter("UserEmail"))) {
+//				request.getRequestDispatcher("homeLoged.jsp");
+//				
+//			}else {
+//				request.getRequestDispatcher("PAGINADEERRORLAQUESEA.jsp");
+//			}
+//		}
 	}
 
 	/**
