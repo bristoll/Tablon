@@ -50,7 +50,7 @@ public class AuthServ extends HttpServlet {
 		doGet(request, response);
 		UserController control = new UserController();
 		List<User> listauser = control.verUsers();
-		// response.getWriter().print(listauser);
+		 response.getWriter().print(listauser);
 
 		for (User user : listauser) {
 			if ((request.getParameter("UserEmail").equals(user.getCorreo()))) {

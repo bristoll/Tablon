@@ -13,7 +13,7 @@ public class Conection {
 		Connection con = null;
 
 		String user = "root"; //just for developing use
-		String pass = "#Ff0016#";
+		String pass = "";
 		try {
 			
 			String server = "jdbc:mysql://localhost/tablon?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
