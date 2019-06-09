@@ -6,6 +6,7 @@ import java.util.List;
 import com.ted.model.Post;
 import com.ted.model.PostDAO;
 import com.ted.model.PostDAOImpl;
+import com.ted.model.User;
 
 /**
  * 
@@ -31,6 +32,13 @@ public class PostController {
 		List<Post> posts = new ArrayList<Post>();
 		PostDAO dao= new  PostDAOImpl();
 		posts=dao.obtain();
+//		vista.verPost(posts);//Llamamos a ver posts para mostrar el resultado
+		return posts;
+	}
+	public List<Post> verMisPost(User user){
+		List<Post> posts = new ArrayList<Post>();
+		PostDAO dao= new  PostDAOImpl();
+		posts=dao.misPost(user);
 //		vista.verPost(posts);//Llamamos a ver posts para mostrar el resultado
 		return posts;
 	}

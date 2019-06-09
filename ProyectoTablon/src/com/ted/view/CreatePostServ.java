@@ -39,14 +39,15 @@ public class CreatePostServ extends HttpServlet {
 		//Accedemos a los datos del usuario de la session, es decir recuperamos el objeto user de la sesion para poder crear el post
 		
 		//Para la prueba generamos un user aqui
-		User usuario = new User(1, "PAco", "paquitin", "1234", "paquito@gmail.com", "paquitin", java.sql.Timestamp.valueOf(LocalDateTime.now()),0);
-		
+		//User usuario = new User(1, "PAco", "paquitin", "1234", "paquito@gmail.com", "paquitin", java.sql.Timestamp.valueOf(LocalDateTime.now()),0);
+		User usuario =(User)request.getSession().getAttribute("user");
+		//System.out.println(usuario);
 		Post post = new Post(usuario, java.sql.Timestamp.valueOf(LocalDateTime.now()), 400, request.getParameter("tituloPost"), request.getParameter("textoPost"));
 		
 		boolean insertar = controller.insert(post);
 		System.out.println(insertar);
 		if (insertar == true) {
-			request.getRequestDispatcher("homeLoged.jsp").forward(request, response);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		} else {
 			request.getRequestDispatcher("crearPost.jsp").forward(request, response);
 		}

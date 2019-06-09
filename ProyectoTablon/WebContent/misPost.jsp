@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 	<jsp:useBean id="user" class = "com.ted.model.User" scope="session"></jsp:useBean>
+	<%@page import="com.ted.model.Post,java.util.List"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,33 +25,18 @@
 		</div>
 		<div class="card-body">
 			<div class="row justify-content-center">
-				<div class="list-group">
-					<a href="postLoged.jsp" class="list-group-item list-group-item-action ">
-						<div class="d-flex w-100 justify-content-between">
-							<h5 class="mb-1">List group item heading</h5>
-							<small>3 days ago</small>
-						</div>
-						<p class="mb-1">Donec id elit non mi porta gravida at eget
-							metus. Maecenas sed diam eget risus varius blandit.</p> <small>Donec
-							id elit non mi porta.</small>
-					</a> <a href="#" class="list-group-item list-group-item-action">
-						<div class="d-flex w-100 justify-content-between">
-							<h5 class="mb-1">List group item heading</h5>
-							<small class="text-muted">3 days ago</small>
-						</div>
-						<p class="mb-1">Donec id elit non mi porta gravida at eget
-							metus. Maecenas sed diam eget risus varius blandit.</p> <small
-						class="text-muted">Donec id elit non mi porta.</small>
-					</a> <a href="#" class="list-group-item list-group-item-action">
-						<div class="d-flex w-100 justify-content-between">
-							<h5 class="mb-1">List group item heading</h5>
-							<small class="text-muted">3 days ago</small>
-						</div>
-						<p class="mb-1">Donec id elit non mi porta gravida at eget
-							metus. Maecenas sed diam eget risus varius blandit.</p> <small
-						class="text-muted">Donec id elit non mi porta.</small>
-					</a>
-				</div>
+				<%
+							List<Post> listaPost = (List<Post>) session.getAttribute("listaMisPost");
+								System.out.println(listaPost);
+								//Añadir generador de url para el href usando la url generica del post+id y luego usamos el ID para recuperar el post por id y verlo
+							
+							for (int i = 0; i < listaPost.size(); i++) {
+								
+								out.print("<div class='form-group col-md-8'>"+"<a href='#' class='list-group-item list-group-item-action '>"+"<div class='d-flex w-100 justify-content-between'>"+"<h5 class='mb-1'>"+
+								listaPost.get(i).getTitulo()+"</h5>"+"<span class='badge badge-primary badge-pill'>"+listaPost.get(i).getPuntuacion()+
+							"</span>"+"</div>"+"<span class='badge'>"+listaPost.get(i).getFechaCreacion() +"</span> <p class='mb-1'>"+listaPost.get(i).getTexto()+
+				"</a>"+"</div>");
+			} %>
 			</div>
 		</div>
 </body>

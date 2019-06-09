@@ -50,7 +50,7 @@ public class AuthServ extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String url="home.jsp";
+		String url="registro.jsp";
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		UserController control = new UserController();
@@ -64,7 +64,7 @@ public class AuthServ extends HttpServlet {
 					//asignamos los valores del usuario en la base de datos a la sesion
 					session.setAttribute("user", user);
 					
-					url="homeLoged.jsp";
+					url="perfilUsuario.jsp";
 					break;
 				} 
 

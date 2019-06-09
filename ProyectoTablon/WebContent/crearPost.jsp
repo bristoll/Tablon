@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+		<jsp:useBean id="user" class = "com.ted.model.User" scope="session"></jsp:useBean>
+	
 <!DOCTYPE html>
 <html>
 <head>
